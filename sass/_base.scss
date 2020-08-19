@@ -25,7 +25,11 @@ Variables
 //utilitis
 //-------------------
 
---box-shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.308);
+--box-shadow-light-3: 0 .5rem 1rem rgba(0, 0, 0, 0.055);
+
+--box-shadow-dark-1: 0 .5rem 1rem rgba(0, 0, 0, 0.308);
+--box-shadow-dark-2: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+--box-shadow-dark-3: 0 2rem 6rem rgba(0, 0, 0, 0.308);
 }
 
 //---------------------------------------------------
@@ -59,7 +63,7 @@ body {
     max-width: 120rem;
     margin: 8rem auto;
     background-color: var(--color-grey-light-1);
-    box-shadow: var(--box-shadow-dark);
+    box-shadow: var(--box-shadow-dark-3);
 
     // min-height: 60rem;
     // display: flex;
@@ -77,7 +81,7 @@ body {
 .content {
     display: flex;
     
-    height: 70rem;
+    // height: 70rem;
 }
 
 .side-bar {
@@ -90,8 +94,13 @@ body {
 }
 
 .hotel-view {
-    background-color: teal;
-
     flex: 1;
+    background-color: var(--color-grey-light-0);
 }
 
+// =======hotel details======
+
+.details {
+    display: flex;
+    margin: 5rem;
+}
