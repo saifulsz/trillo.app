@@ -47,10 +47,18 @@ Variables
 html {
     font-size: 62.5%;
     box-sizing: border-box;
+
+    @include respond(medium-large) {
+        font-size: 56.5%;
+    }
+
+    @include respond(medium) {
+        font-size: 50%;
+    }
 }
 
 body {
-    font-size: 1.4;
+    // font-size: 1.4;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
     font-weight: 400;
@@ -65,8 +73,9 @@ body {
     background-color: var(--color-grey-light-1);
     box-shadow: var(--box-shadow-dark-3);
 
-    // min-height: 60rem;
-    // display: flex;
+    @include respond(large) {
+        margin: 0;
+    }
 }
 
 .header {
@@ -76,12 +85,20 @@ body {
 
     @include center-all;
     justify-content: space-between;
+
+    @include respond(small) {
+        flex-wrap: wrap;
+        height: 12rem;
+        align-content: space-around;
+    }
 }
 
 .content {
     display: flex;
-    
-    // height: 70rem;
+
+    @include respond(medium) {
+        flex-direction: column;
+    }
 }
 
 .side-bar {
@@ -91,6 +108,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @include respond(medium) {
+        flex: 1;
+    }
 }
 
 .hotel-view {
@@ -103,4 +124,32 @@ body {
 .details {
     display: flex;
     margin: 5rem;
+
+    @include respond(medium-large) {
+        margin: 4rem;
+    }
+
+    @include respond(medium) {
+        margin: 3rem;
+    }
+
+    @include respond(small) {
+        flex-direction: column;
+    }
+}
+
+.footer {
+    background-color: var(--color-grey-dark-2);
+    color: var(--color-grey-light-0);
+    height: 8rem;
+    width: 100%;
+    font-size: 1.8rem;
+    display: none;
+    
+        @include respond(medium) {
+        display: block;
+        @include center-all;
+    }
+
+    
 }

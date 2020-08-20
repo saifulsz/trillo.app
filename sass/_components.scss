@@ -14,6 +14,12 @@
     flex: 0 0 40%;
     @include center-all;
 
+    @include respond(small) {
+        order: 1;
+        flex: 0 0 100%;
+        background-color: var(--color-grey-light-2);
+    }
+
 
     &__input {
         font-size: inherit;
@@ -30,6 +36,7 @@
         &::-webkit-input-placeholder {
             opacity: .9;
             font-weight: 100;
+            font-size: 1.3rem;
         }
 
         &:focus {
@@ -93,7 +100,7 @@
     }
 
     &__notification {
-        font-size: .8rem;
+        font-size: 1rem;
         position: absolute;
         top: 1.5rem;
         right: 1.1rem;
@@ -101,7 +108,7 @@
         height: 1.75rem;
         width: 1.75rem;
         border-radius: 50%;
-        color: var(--color-grey-light-0);
+        color: #fff;
 
         // display: flex;
         // justify-content: center;
@@ -137,6 +144,13 @@
     &__list {
         list-style: none;
         padding: 3rem 0;
+        display: flex;
+        flex-direction: column;
+
+        @include respond(medium) {
+            padding: 0;
+            flex-direction: row;
+        }
     }
 
     &__item {
@@ -144,6 +158,15 @@
 
         &:not(:last-child) {
             margin-bottom: .5rem;
+
+            @include respond(medium) {
+                margin: 0;
+            }
+        }
+
+        @include respond(medium) {
+            flex: 1;
+            // flex-direction: column;
         }
 
     }
@@ -183,6 +206,21 @@
 
         display: flex;
         align-items: center;
+
+        @include respond(medium) {
+            margin: 0;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        @include respond(small) {
+            font-size: 1.4rem;
+            overflow: hidden;
+            padding: 1rem 1.5rem;
+            flex-direction: column;
+            // justify-content: center;   
+            // align-items: center;
+        }
     }
 
     &__link:active {
@@ -194,6 +232,12 @@
         width: 2rem;
         fill: currentColor;  // current or its parent element color
         margin-right: 1.5rem;
+
+
+        @include respond(small) {
+            margin-right: 0;  
+            margin-bottom: .5rem;
+        }
     }
 
     &__copyright {
@@ -201,6 +245,10 @@
         padding: 3rem 1rem;
         text-align: center;
         font-size: 1.5rem;
+
+        @include respond(medium) {
+            display: none;
+        }
     }
 
 }
@@ -228,6 +276,10 @@
         height: 7rem;
         align-items: center;
         background-color: #fff;
+
+        @include respond(small) {
+            height: 5rem;
+        }    
     }
 
     &__heading {
@@ -236,6 +288,16 @@
         margin-right: 1rem;
         color: var(--color-grey-dark-0);
         margin-left: 3rem;
+
+        @include respond(medium) {
+            font-size: 2rem;
+            margin-left: 2.5rem;   
+        }  
+        
+        @include respond(small) {
+            font-size: 1.8rem;
+            margin-left: 2rem;
+        }
     }
 
     &__star {
@@ -243,13 +305,12 @@
         display: flex;
 
         &--icon {
-            @include icon-primary-small;
+            @include icon-primary-small;  
         }
     }
 
     &__location {
-        display: flex;
-
+        @include center-all;
 
         &--icon {
             @include icon-primary-small;
@@ -283,6 +344,19 @@
             font-size: 3rem;
             padding: 0 2rem;
             margin-bottom: -3px;
+
+            @include respond(small) {
+                font-size: 1.8rem;
+                padding: 0 2rem;
+            }
+        }
+
+        &--count {
+            font-size: 1.3rem;
+
+            @include respond(small) {
+                font-size: 1.1rem;
+            }
         }
     }
 }
@@ -312,9 +386,24 @@
     flex: 0 0 60%;
     background-color: #fff;
     padding: 3rem;
-    margin-right: 5rem;
+    margin-right: 4rem;
     color: var(--color-grey-dark-1);
     box-shadow: var(--box-shadow-light-3);
+
+    @include respond(medium-large) {
+        padding: 2rem;
+        margin-right: 3rem;
+    }
+
+    @include respond(medium) {
+        padding: 1.5rem;
+        margin-right: 2.5rem;
+    }
+
+
+    @include respond(small) {
+        margin: 0;
+    }
 
     &__paragraph {
         font-size: 1.5rem;
@@ -329,6 +418,11 @@
         padding: 3rem 0;
         border-top: 1px solid var(--color-grey-light-2);
         border-bottom: 1px solid var(--color-grey-light-2);
+
+        @include respond(medium-large) {
+            margin: 2rem 0;
+            padding: 2rem 0;
+        }
 
         &--list {
             list-style: none;
@@ -363,13 +457,21 @@
         align-items: center;
         color: var(--color-grey-dark-0);
 
+        @include respond(medium) {
+            margin-top: 5rem;
+        }
+
+        @include respond(small) {
+            margin: 0;
+        }
+
         &--recommendation {
             margin-right: auto;
             font-size: 1.4rem;
         }
 
         &--img-holder {
-
+            display: flex;
         }
 
         &--img {
@@ -382,6 +484,11 @@
             &:not(:last-child) {
                 margin-right: -2rem;
             }
+
+            @include respond(medium-large) {
+                height: 3rem;
+                width: 3rem;
+            }
         }
     }
 }
@@ -390,26 +497,55 @@
 //================> review
 .review {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    @include respond(small) {
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 3rem;
+    }
 
     &__box {
         padding: 3rem 2rem;
         background-color: #fff;
         box-shadow: var(--box-shadow-light-3);
         color: var(--color-grey-dark-1);
+
+        @include respond(small) {
+            flex: 0 0 48%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
     
         &:not(:last-of-type) {
             margin-bottom: 5rem;
+
+            @include respond(medium-large) {
+                margin-bottom: 4rem;
+            }
+    
+            @include respond(medium) {
+                margin-bottom: 3rem;
+            }
+
+            @include respond(small) {
+                    margin-bottom: 0;
+                    // margin-right: 5%;
+            }
         }
 
         position: relative;
 
         &::before {
-            content: "\201c";
+            content: "\201C";
             display: block;
             position: absolute;
-            top: -8.75rem;
-            left: -7px;
-            font-size: 20rem;
+            top: -7rem;
+            left: -.7rem;
+            font-size: 16rem;
             color: var(--color-grey-light-2);
         }
     }
@@ -458,7 +594,7 @@
             border:none;
             border-bottom: 1px solid currentColor;
             cursor: pointer;
-            display: block;
+            display: inline-block;
             padding: 2px 0;
             margin: 0 auto;
             margin-top: 3rem;
@@ -483,4 +619,93 @@
                 animation: shadow-focus 1s infinite;
             }
     }
+}
+
+
+
+// =========================
+// ======booking section====
+// =========================
+
+.booking {
+    background-color: #fff;
+    padding: 4rem 0;
+
+
+
+    @include respond(medium-large) {
+        padding: 3rem 0;
+    }
+
+    &__heading {
+        font-size: 2rem;
+        color: var(--color-grey-dark-1);
+        font-weight: 300;
+        margin-bottom: 3rem;
+        text-align: center;
+
+        @include respond(small) {
+            font-size: 1.8rem;
+        }
+    }
+
+    &__btn {
+        display: block;
+        height: 5.5rem;
+        width: 23rem;
+        // padding: 3rem 3.5rem;
+        font-size: 1.6rem;
+        background-color: var(--color-primary);
+        border: none;
+        border-radius: 10rem;
+        margin: 0 auto;
+        color: var(--color-grey-light-0);
+        text-transform: uppercase;
+        cursor: pointer;
+        background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+        transition: background-image .05s;
+        overflow: hidden;
+
+        // @include respond(small) {
+        //     height: 4.5rem;
+        //     width: 20rem;
+        // }
+
+        &:focus {
+            outline: none;
+            animation: shadow-focus 1s infinite;
+        }
+
+        &:hover {
+            background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+        }
+
+        &:hover &--invisible{
+            transform: translateY(1rem);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &:hover &--visible {
+            transform: translateY(3rem);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        &--visible {
+            display: block;
+            transform: translateY(-1rem);
+            transition: all .2s;
+        }
+
+        &--invisible {;
+            display: block;
+            transform: translateY(-3rem);
+            // margin-top: -7rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all .2s;
+        }
+    }
+
 }

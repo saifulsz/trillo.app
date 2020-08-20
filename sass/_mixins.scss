@@ -8,4 +8,49 @@
     height: 1.75rem;
     width: 1.75rem;
     fill: var(--color-primary);
+
+    @include respond(small) {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+}
+
+//for media query =======>
+
+@mixin respond($bp) { //bp = break point
+    @if $bp == large {
+        @media only screen and (max-width: 75em){
+            @content;
+        }
+    }
+
+    @if $bp == medium-large {
+        @media only screen and (max-width: 68.75em){
+            @content;
+        }
+    }
+
+    @if $bp == medium {
+        @media only screen and(max-width: 56.25em){
+            @content;
+        }
+    }
+
+    // @if $bp == small {
+    //     @media only screen and(max-width: 43.5em){
+    //         @content;
+    //     }
+    // }
+
+    @if $bp == small {
+        @media only screen and(max-width: 37.5em){
+            @content;
+        }
+    }
+
+    // @if $bp == x-small {
+    //     @media only screen and(max-width: 37.5em){
+    //         @content;
+    //     }
+    // }
 }
